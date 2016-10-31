@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        id        = "br.com.multidadosti.mepediufbteste"
+        version   = "1.1.1"
+        versionCode="111"
+>
+    <name>Me Pediu FB</name>
+    <description>Me Pediu FB</description>
+    <author href="https://mepediu.com.br" email="comercial@mepediu.com.br">Me Pediu</author>
+    
+    <!-- rudi 07/10/2015 a versao mais nova (5.2) do cordova crashava no android em qqer tentativa de carregar recursos externos (js, etc)-->
+    <!-- forçando versao antiga -->
+    <!-- rudi 13/10/2015 : <preference name="phonegap-version" value="cli-5.2.0" /> -->
+    <!-- <preference name="phonegap-version" value="3.7.0" /> -->
+    <preference name="phonegap-version" value="cli-6.3.0"  gap:platform="ios" />
+    <preference name="phonegap-version" value="cli-6.3.0"  gap:platform="android" />
+    <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="winphone" />
+    <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="wp8" />
+    
+    <plugin name="cordova-okaybmd-fb-connect-plugin" source="npm">
+        <param name="APP_ID" value="937608466368165" />
+        <param name="APP_NAME" value="MePediu" />
+    </plugin>
+    
+    <access origin="*" />
+    
+    <!-- rudi 9/10/2015 precisa desse plugin de whitelist e essas configs pra funcionar no pgb 5.2+  -->
+    <plugin name="cordova-plugin-whitelist" spec="1.3.0" source="npm" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="ftp://*/*" />
+    <allow-navigation href="data:*" />
+    <allow-intent href="*" /> 
+
+    <!-- passando para npm : <plugin name="org.apache.cordova.inappbrowser" spec="0.6.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-inappbrowser" spec="1.5.0" source="npm" />
+    
+    
+    <!-- https://www.npmjs.com/package/cordova-plugin-sms -->
+    <plugin name="cordova-plugin-sms" spec="1.0.5" source="npm" />
+    
+    <!-- passando para npm : <plugin name="hu.dpal.phonegap.plugins.uniquedeviceid" spec="1.2.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-uniquedeviceid" spec="1.3.2" source="npm" />
+    
+    <!-- passando para npm : <plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" /> -->
+    <plugin name="ionic-plugin-keyboard" spec="2.2.1" source="npm" />
+    
+    <!-- passando para npm : <plugin name="hu.dpal.phonegap.plugins.spinnerdialog" spec="0.1.5" source="pgb" /> -->
+    <plugin name="cordova-plugin-spinnerdialog" spec="1.3.2" source="npm" />
+    
+    <!-- passando para npm : <plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" /> -->
+    <plugin name="phonegap-plugin-push" spec="1.8.3" source="npm" gap:platform="ios">
+        <param name="SENDER_ID" value="843663009913" /><!-- 843663009913 eh o project number do mepediu-push no google dev console -->
+    </plugin>
+    
+    <plugin name="phonegap-plugin-push" spec="1.8.3" source="npm" gap:platform="android">
+        <param name="SENDER_ID" value="843663009913" /><!-- 843663009913 eh o project number do mepediu-push no google dev console -->
+    </plugin>
+    
+    <!-- passando para npm : <plugin name="cordova-plugin-geolocation" spec="1.0.1" source="pgb" /> -->
+    <plugin name="cordova-plugin-geolocation" spec="2.4.0" source="npm" />
+    
+    <!-- passando para npm : <plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-statusbar" spec="2.2.0" source="npm" />
+    
+    <!-- passando para npm : <plugin name="org.apache.cordova.dialogs" spec="0.3.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-dialogs" spec="1.3.0" source="npm" />
+    
+    <!-- passando para npm : <plugin name="org.apache.cordova.vibration" spec="0.3.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-vibration" spec="2.1.2" source="npm" />
+     
+    <!-- passando para npm : <plugin name="org.apache.cordova.network-information" spec="0.2.15" source="pgb" /> -->
+    <plugin name="cordova-plugin-network-information" spec="1.3.0" source="npm" />
+    
+    <!-- numeric input mas soh com password, tentar usar o cordova-plugin-number-dialog -->
+    <!-- passando para npm : <plugin name="hu.dpal.phonegap.plugins.pindialog" spec="0.1.3" source="pgb" /> -->
+    <plugin name="cordova-plugin-pindialog" spec="0.2.3" source="npm" />
+    
+    <!-- passando para npm : <plugin name="org.apache.cordova.splashscreen" spec="1.0.0" source="pgb" /> -->
+    <plugin name="cordova-plugin-splashscreen" spec="4.0.0" source="npm" />
+
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+    
+    <gap:config-file platform="ios" parent="UIStatusBarHidden">
+        <true/>
+    </gap:config-file>
+
+    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+        <false/>
+    </gap:config-file>
+    
+    <preference name="StatusBarOverlaysWebView" value="false" />
+
+    <preference name="stay-in-webview" value="true" />
+    <preference name="orientation" value="portrait" />
+
+    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true"/>
+    <preference name="FadeSplashScreen" value="false"/>
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="7000" />
+  
+    <!-- o systray do wp8 da overlap, fullscreen resolve isso -->
+    <platform name="wp8">
+        <preference name="fullscreen" value="true"/>
+    </platform>
+    <platform name="ios">
+        <preference name="fullscreen" value="false"/>
+    </platform>
+    <platform name="android">
+        <preference name="fullscreen" value="false"/>
+    </platform>
+    
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="OpenAllWhitelistURLsInWebView" value="true" />
+    
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="KeyboardShrinksView" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <!-- page, column -->
+    <preference name="PaginationMode" value="unpaginated" />
+		
+
+    <icon src="icon.png" />
+   
+    <splash src="splash.png" />
+
+</widget>
