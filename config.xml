@@ -23,6 +23,7 @@
         <param name="APP_NAME" value="MePediu" />-->
     <plugin name="mp-cordova-plugin-facebook" source="npm">
         <param name="APP_ID" value="937608466368165" />
+        <param name="APP_NAME" value="MePediu" />
     </plugin>
     
     <access origin="*" />
