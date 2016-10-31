@@ -19,10 +19,10 @@
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="winphone" />
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="wp8" />
     
-    <gap:plugin name="mp-cordova-plugin-facebook" source="npm" />
+    <plugin name="mp-cordova-plugin-facebook" source="npm" />
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
-    </gap:plugin>
+    </plugin>
     
     <access origin="*" />
     
