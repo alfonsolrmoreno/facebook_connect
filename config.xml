@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
-        id        = "br.com.multidadosti.mepediu"
+        id        = "br.com.multidadosti.mepediutestes"
         version   = "1.1.1"
         versionCode="111"
 >
@@ -25,10 +25,16 @@
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
     </plugin>
+    <plugin name="cordova-plugin-accountkit" source="npm">
+        <param name="APP_ID" value="937608466368165" />
+        <param name="APP_NAME" value="MePediu" />
+        <param name="CLIENT_TOKEN" value="84301d04b4aa06fc37b41d5cc376b3f3" />
+    </plugin>
     <platform name="android">
         <preference name="AndroidLaunchMode" value="singleTop"/>
         <preference name="android-minSdkVersion" value="15" />
     </platform>
+    
     <access origin="*" />
     
     <!-- rudi 9/10/2015 precisa desse plugin de whitelist e essas configs pra funcionar no pgb 5.2+  -->
