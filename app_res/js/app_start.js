@@ -8,11 +8,11 @@ APP_FW = 'jqm';
 DEVICE_UUID = '';
 
 function res_url() {
-    return 'http://192.168.0.76/facebook_connect/server/';
+    return 'http://mepediu.com.br/pedidos_dev/pedidos/mobile/facebook_connect/server/';
 }
 
 function server_url() {
-    return 'http://192.168.0.76/facebook_connect/server/';
+    return 'http://mepediu.com.br/pedidos_dev/pedidos/mobile/facebook_connect/server/';
 }
 
 function api_url() {
