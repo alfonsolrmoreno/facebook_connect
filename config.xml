@@ -25,13 +25,16 @@
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
     </plugin>
+    <!-- https://www.npmjs.com/package/cordova-plugin-accountkit -->
     <plugin name="cordova-plugin-accountkit" source="npm">
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
         <param name="CLIENT_TOKEN" value="84301d04b4aa06fc37b41d5cc376b3f3" />
     </plugin>
+    
     <platform name="android">
         <preference name="AndroidLaunchMode" value="singleTop"/>
+        <!-- precisa do minsdk 15 para os plugins de facebook -->
         <preference name="android-minSdkVersion" value="15" />
     </platform>
     
