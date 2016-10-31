@@ -18,8 +18,8 @@
     <preference name="phonegap-version" value="cli-6.3.0"  gap:platform="android" />
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="winphone" />
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="wp8" />
-     
-    <plugin name="com.phonegap.plugins.facebookconnect" source="npm">
+    
+    <plugin name="cordova-okaybmd-fb-connect-plugin" source="npm">
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
     </plugin>
