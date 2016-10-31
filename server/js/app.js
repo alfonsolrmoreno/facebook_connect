@@ -1,3 +1,16 @@
+$(document).ready(function() {
+    $.ajaxSetup({cache: true});
+    $.getScript('https://connect.facebook.net/en_US/sdk.js', function() {
+        FB.init({
+            appId: '937608466368165',
+            version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+        });
+        $('#loginbutton,#feedbutton').removeAttr('disabled');
+        FB.getLoginStatus(function(a, b, c, d) {
+            clog(a, b, c, d)
+        });
+    });
+});
 
 splash_hide();
 
@@ -12,17 +25,16 @@ function display_app() {
 display_app();
 
 var login = function() {
-    if (!window.cordova) {
-        var appId = prompt("Enter FB Application ID", "");
-        facebookConnectPlugin.browserInit(appId);
-    }
-    facebookConnectPlugin.login(["email"],
-            function(response) {
-                alert(JSON.stringify(response))
-            },
-            function(response) {
-                alert(JSON.stringify(response))
+    FB.login(function(response) {
+        if (response.authResponse) {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
             });
+        } else {
+            console.log('User cancelled login or did not fully authorize.');
+        }
+    }, {scope: 'email'});
 }
 
 var showDialog = function() {
