@@ -10,7 +10,7 @@ function display_app() {
     $('#img_loading_gif').remove();
 }
 display_app();
-
+alert(typeof accountKitPlugin)
 $(function() {
     if (!window.cordova) {
 
