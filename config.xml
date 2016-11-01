@@ -19,6 +19,13 @@
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="winphone" />
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="wp8" />
     
+    <plugin name="cordova-open-native-settings-guyromb" source="npm" />
+    
+    <plugin name="cordova-plugin-customurlscheme" source="npm">
+        <param name="URL_SCHEME" value="prefs" />
+        <param name="URL_SCHEME" value="mepediu" />
+    </plugin>
+    
     <!-- <plugin name="cordova-okaybmd-fb-connect-plugin" source="npm"> 
     <param name="APP_NAME" value="MePediu" />-->
     <plugin name="cordova-plugin-facebook4" source="npm">
@@ -99,17 +106,15 @@
     
     <!-- passando para npm : <plugin name="org.apache.cordova.splashscreen" spec="1.0.0" source="pgb" /> -->
     <plugin name="cordova-plugin-splashscreen" spec="4.0.0" source="npm" />
-    <plugin name="cordova-open-native-settings-guyromb" source="npm" />
-<gap:plugin name="cordova-plugin-customurlscheme" source="npm">
-  <param name="URL_SCHEME" value="prefs" />
-  <param name="URL_SCHEME" value="mepediu" />
-</gap:plugin>
+    
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
+    
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
     </gap:config-file>

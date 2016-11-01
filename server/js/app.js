@@ -13,35 +13,29 @@ display_app();
 
 $(function() {
     $('body').append('<BR><a href="prefs://root=LOCATION_SERVICES">LOCATION SERVICES</a>');
-    
+
     navigator.geolocation.getCurrentPosition(function(position) {
         alert('ok 1')
     }, function(error) {
         alert('err 2')
-/*
-        cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message 
-                "Use GPS, with wifi or 3G.", //description 
-                function(buttonIndex) {//callback 
-                    switch (buttonIndex) {
-                        case 0:
-                            break;//cancel 
-                        case 1:
-                            break;//neutro option 
-                        case 2:
-                            break;//user go to configuration 
-                    }
-                },
-                "Please Turn on GPS", //title 
-                ["Cancel", "Later", "Go"]);//buttons 
-                */
-               alert(typeof window.cordova.plugins.settings.open)
-               window.cordova.plugins.settings.open( function() {
-            console.log('opened settings');
-        },
-        function () {
-            console.log('failed to open settings');
-        }
-    );
+        /*
+         cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message 
+         "Use GPS, with wifi or 3G.", //description 
+         function(buttonIndex) {//callback 
+         switch (buttonIndex) {
+         case 0:
+         break;//cancel 
+         case 1:
+         break;//neutro option 
+         case 2:
+         break;//user go to configuration 
+         }
+         },
+         "Please Turn on GPS", //title 
+         ["Cancel", "Later", "Go"]);//buttons 
+         */
+        alert(typeof window.cordova.plugins.settings.open)
+
     }, {
         enableHighAccuracy: true,
         timeout: 10000,
@@ -49,16 +43,17 @@ $(function() {
     });
 
 
-        navigator.geolocation.watchPosition(function(res) {
-            alert('watchPosition ok ')
-        }
-        , function(res) {
-            //res.PERMISSION_DENIED == '1'
-            var msg = '';
-            for(var i in res)msg+="\n"+i+' => '+res[i]
-            alert('watchPosition ERR '+msg)
-        });
-        
+    navigator.geolocation.watchPosition(function(res) {
+       // alert('watchPosition ok ')
+    }
+    , function(res) {
+        //res.PERMISSION_DENIED == '1'
+        var msg = '';
+        for (var i in res)
+            msg += "\n" + i + ' => ' + res[i]
+        alert('watchPosition ERR ' + msg)
+    });
+
     if (!window.cordova) {
 
         window.facebookConnectPlugin = {
@@ -319,4 +314,89 @@ var logout = function() {
                 alert(JSON.stringify(response))
             });
 }
-            
+
+var sets = [
+    ['about', 'ios'],
+    ['accessibility', 'ios, android'],
+    ['account', 'ios, android'],
+    ['airplane_mode', 'ios, android'],
+    ['apn', 'android'],
+    ['application_details', 'ios, android'],
+    ['application_development', 'android'],
+    ['application', 'android'],
+    ['autolock', 'ios'],
+    ['bluetooth', 'ios, android'],
+    ['castle', 'ios'],
+    ['captioning', 'android'],
+    ['cast', 'android'],
+    ['cellular_usage', 'ios'],
+    ['configuration_list', 'ios'],
+    ['data_roaming', 'android'],
+    ['date', 'ios, android'],
+    ['display', 'ios, android'],
+    ['dream', 'android'],
+    ['facetime', 'ios'],
+    ['home', 'android'],
+    ['keyboard', 'ios, android'],
+    ['keyboard_subtype', 'android'],
+    ['locale', 'ios, android'],
+    ['location', 'ios, android'],
+    ['manage_all_applications', 'android'],
+    ['manage_applications', 'android'],
+    ['memory_card', 'android'],
+    ['music', 'ios'],
+    ['music_equalizer', 'ios'],
+    ['music_volume', 'ios'],
+    ['network', 'ios, android'],
+    ['nike_ipod', 'ios'],
+    ['nfcsharing', 'android'],
+    ['nfc_payment', 'android'],
+    ['nfc_settings', 'android'],
+    ['notes', 'ios'],
+    ['notification_id', 'ios'],
+    ['passbook', 'ios'],
+    ['phone', 'ios'],
+    ['photos', 'ios'],
+    ['print', 'android'],
+    ['privacy', 'android'],
+    ['quick_launch', 'android'],
+    ['reset', 'ios'],
+    ['ringtone', 'ios'],
+    ['browser', 'ios'],
+    ['search', 'ios, android'],
+    ['security', 'android'],
+    ['settings', 'ios, android'],
+    ['show_regulatory_info', ''],
+    ['sound', 'ios, android'],
+    ['software_update', 'ios'],
+    ['storage', 'ios, android'],
+    ['store', 'ios, android'],
+    ['sync', 'android'],
+    ['tethering', 'ios'],
+    ['twitter', 'ios'],
+    ['usage', 'ios, android'],
+    ['user_dictionary', 'android'],
+    ['video', 'ios'],
+    ['voice_input', 'android'],
+    ['vpn', 'ios'],
+    ['wallpaper', 'ios'],
+    ['wifi_ip', 'android'],
+    ['wifi', 'ios, android'],
+    ['wireless', 'android']
+];
+
+for (var i = 0; i < sets.length; i++) {
+    var set = sets[i][0];
+    var plat = sets[i][1];
+    $('body').append('<div class="event listening button" onclick="openset(\'' + set + '\');">' + set + ' (' + plat + ')</div>');
+
+}
+
+function openset(set) {
+    window.cordova.plugins.settings.open(set, function() {
+        alert('opened ' + set);
+    }, function() {
+        alert('failed to open ' + set);
+    }
+    );
+}
