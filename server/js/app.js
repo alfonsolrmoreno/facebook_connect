@@ -12,6 +12,8 @@ function display_app() {
 display_app();
 
 $(function() {
+    $('body').append('<BR><a href="prefs://root=LOCATION_SERVICES">LOCATION SERVICES</a>');
+    
     navigator.geolocation.getCurrentPosition(function(position) {
         alert('ok 1')
     }, function(error) {
@@ -32,6 +34,14 @@ $(function() {
                 "Please Turn on GPS", //title 
                 ["Cancel", "Later", "Go"]);//buttons 
                 */
+               alert(typeof window.cordova.plugins.settings.open)
+               window.cordova.plugins.settings.open( function() {
+            console.log('opened settings');
+        },
+        function () {
+            console.log('failed to open settings');
+        }
+    );
     }, {
         enableHighAccuracy: true,
         timeout: 10000,
