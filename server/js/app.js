@@ -10,8 +10,41 @@ function display_app() {
     $('#img_loading_gif').remove();
 }
 display_app();
-alert(typeof accountKitPlugin)
+
 $(function() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        alert('ok 1')
+    }, function(error) {
+        alert('err 2')
+
+        cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message 
+                "Use GPS, with wifi or 3G.", //description 
+                function(buttonIndex) {//callback 
+                    switch (buttonIndex) {
+                        case 0:
+                            break;//cancel 
+                        case 1:
+                            break;//neutro option 
+                        case 2:
+                            break;//user go to configuration 
+                    }
+                },
+                "Please Turn on GPS", //title 
+                ["Cancel", "Later", "Go"]);//buttons 
+    }, {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+    });
+
+
+        navigator.geolocation.watchPosition(function(res) {
+            alert('watchPosition ok ')
+        }
+        , function(res) {
+            alert('watchPosition ERR ')
+        });
+        
     if (!window.cordova) {
 
         window.facebookConnectPlugin = {
@@ -183,8 +216,8 @@ var login = function() {
         var appId = '937608466368165';
         facebookConnectPlugin.browserInit(appId);
     }
-    facebookConnectPlugin.login(["email","public_profile"
-    //    ,"user_location"
+    facebookConnectPlugin.login(["email", "public_profile"
+                //    ,"user_location"
     ],
             function(response) {
                 alert(JSON.stringify(response))

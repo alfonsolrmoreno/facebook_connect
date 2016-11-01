@@ -103,7 +103,9 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
-    
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
     </gap:config-file>
