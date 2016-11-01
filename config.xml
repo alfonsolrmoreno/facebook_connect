@@ -99,6 +99,7 @@
     
     <!-- passando para npm : <plugin name="org.apache.cordova.splashscreen" spec="1.0.0" source="pgb" /> -->
     <plugin name="cordova-plugin-splashscreen" spec="4.0.0" source="npm" />
+    <plugin name="cordova-plugin-nativesettings" source="npm" />
 
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />

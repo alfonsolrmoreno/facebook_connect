@@ -16,7 +16,7 @@ $(function() {
         alert('ok 1')
     }, function(error) {
         alert('err 2')
-
+/*
         cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.", //message 
                 "Use GPS, with wifi or 3G.", //description 
                 function(buttonIndex) {//callback 
@@ -31,6 +31,7 @@ $(function() {
                 },
                 "Please Turn on GPS", //title 
                 ["Cancel", "Later", "Go"]);//buttons 
+                */
     }, {
         enableHighAccuracy: true,
         timeout: 10000,
@@ -42,7 +43,10 @@ $(function() {
             alert('watchPosition ok ')
         }
         , function(res) {
-            alert('watchPosition ERR ')
+            //res.PERMISSION_DENIED == '1'
+            var msg = '';
+            for(var i in res)msg+="\n"+i+' => '+res[i]
+            alert('watchPosition ERR '+msg)
         });
         
     if (!window.cordova) {
