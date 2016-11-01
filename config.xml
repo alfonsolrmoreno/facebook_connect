@@ -41,7 +41,7 @@
         <param name="CLIENT_TOKEN" value="84301d04b4aa06fc37b41d5cc376b3f3" />
     </plugin>
     -->
-    <plugin name="cordova-dialog-gps" spec="0.0.2" source="npm" />
+    <plugin name="cordova-dialog-gps" spec="1.0.0" source="npm" />
             
     <access origin="*" />
     
