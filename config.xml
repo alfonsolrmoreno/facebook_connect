@@ -19,16 +19,16 @@
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="winphone" />
     <preference name="phonegap-version" value="cli-5.2.0"  gap:platform="wp8" />
     
-    <plugin name="cordova-open-native-settings-guyromb" source="npm" />
+    <plugin name="cordova-open-native-settings-guyromb" spec="1.3" source="npm" />
     
-    <plugin name="cordova-plugin-customurlscheme" source="npm">
+    <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" source="npm">
         <param name="URL_SCHEME" value="prefs" />
         <param name="URL_SCHEME" value="mepediu" />
     </plugin>
     
     <!-- <plugin name="cordova-okaybmd-fb-connect-plugin" source="npm"> 
     <param name="APP_NAME" value="MePediu" />-->
-    <plugin name="cordova-plugin-facebook4" source="npm">
+    <plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
         <param name="APP_ID" value="937608466368165" />
         <param name="APP_NAME" value="MePediu" />
     </plugin>
@@ -41,15 +41,8 @@
         <param name="CLIENT_TOKEN" value="84301d04b4aa06fc37b41d5cc376b3f3" />
     </plugin>
     -->
-    
-    <platform name="android">
-        <preference name="AndroidLaunchMode" value="singleTop"/>
-        <!-- precisa do minsdk 15 para os plugins de facebook -->
-        <preference name="android-minSdkVersion" value="15" />
-    </platform>
-    
-    <plugin name="cordova-dialog-gps" source="npm" />
-        
+    <plugin name="cordova-dialog-gps" spec="0.0.2" source="npm" />
+            
     <access origin="*" />
     
     <!-- rudi 9/10/2015 precisa desse plugin de whitelist e essas configs pra funcionar no pgb 5.2+  -->
@@ -123,6 +116,13 @@
         <false/>
     </gap:config-file>
     
+    
+    <platform name="android">
+        <preference name="AndroidLaunchMode" value="singleTop"/>
+        <!-- precisa do minsdk 15 para os plugins de facebook -->
+        <preference name="android-minSdkVersion" value="15" />
+    </platform>
+
     <preference name="StatusBarOverlaysWebView" value="false" />
 
     <preference name="stay-in-webview" value="true" />
